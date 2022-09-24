@@ -10,7 +10,7 @@ treesitter.setup({
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-  increment_selection = {
+  incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "<CR>",

@@ -16,3 +16,5 @@ lua require("plugin-cfg.comment")
 lua require("plugin-cfg.nvim-autopairs")
 lua require("plugin-cfg.lualine")
 lua require("plugin-cfg.toggleterm")
+
+lua require("lsp.setup")
