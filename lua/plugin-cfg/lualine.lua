@@ -6,7 +6,7 @@ end
 
 lualine.setup({
   options = {
-    theme = "tokyonight",
+    theme = "onedark",
     globalstatus = true,
   },
   extensions = { "nvim-tree" },
