@@ -25,3 +25,9 @@ vim.o.hlsearch=false
 vim.o.incsearch=true
 -- set 400ms limit to trigger a combine key
 -- vim.o.timeoutlen=400
+
+-- set mouse only work in normal node
+vim.o.mouse=n
+
+-- to limit the height of a popup window
+vim.o.pumheight=7

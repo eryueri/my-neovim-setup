@@ -4,14 +4,14 @@ return require('packer').startup(function(use)
 
   use 'folke/tokyonight.nvim'
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons 
-    }
-  }
+  -- use {
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = { 
+  --     'kyazdani42/nvim-web-devicons', -- optional, for file icons 
+  --   }
+  -- }
 
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -35,16 +35,16 @@ return require('packer').startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
-  use {
-    "akinsho/toggleterm.nvim", 
-    tag = 'v2.*', 
-    config = function()
-      require("toggleterm").setup()
-    end
-  }
+  -- use {
+  --   "akinsho/toggleterm.nvim", 
+  --   tag = 'v2.*', 
+  --   config = function()
+  --     require("toggleterm").setup()
+  --   end
+  -- }
 
   use 'neovim/nvim-lspconfig'
-  -- compelition
+  -- -- compelition
   use 'hrsh7th/cmp-nvim-lsp'
   -- use 'hrsh7th/cmp-buffer'
   -- use 'hrsh7th/cmp-path'

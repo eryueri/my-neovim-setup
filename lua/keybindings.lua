@@ -5,6 +5,11 @@ local opt = {
   silent = true
 }
 
+local opt_nsilent = {
+  noremap = true,
+  silent = false,
+}
+
 local map = vim.api.nvim_set_keymap
 
 -- unbind 'q' for i don't use its origin function
@@ -14,11 +19,10 @@ map("i", "<C-q>", "<ESC>", opt)
 
 -- about save file
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":wq<CR>", opt)
+map("n", "<leader>q", ":wq<CR>", opt)
 
 -- about exit
 map("n", "qq", ":q!<CR>", opt)
-map("n", "<leader>q", ":q<CR>", opt)
 
 -- moving cursor quicker
 map("n", "<C-j>", "5j", opt)
@@ -67,31 +71,34 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 -- 相等比例
 map("n", "s=", "<C-w>=", opt)
 
+-- to open a new file
+map("n", "<C-o>", ":edit ", opt_nsilent);
+
 -- terminal
 map("n", "st", ":sp | terminal<CR>", opt)
 map("n", "stv", ":vsp | terminal<CR>", opt)
+map("t", "<ESC>", "<C-\\><C-n>", opt)
 
 -- plugin shortcuts
 
 -- nvim-tree
-map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
-map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+-- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
+-- map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
+-- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
+-- map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
 -- map("n", "<leader>bc", ":Bdelete!<CR>", opt)
 -- map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭左/右侧标签页
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
--- 关闭其他标签页
-map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
--- 关闭选中标签页
-map("n", "<leader>bp", ":BufferLinePickClose<CR>", opt)
--- toggleterm settings
-map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opt)
-map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opt)
-map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", opt)
-map("t", "<ESC>", "<C-\\><C-n>", opt)
+-- map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
+-- map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
+-- -- 关闭其他标签页
+-- map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
+-- -- 关闭选中标签页
+-- map("n", "<leader>bp", ":BufferLinePickClose<CR>", opt)
+-- -- toggleterm settings
+-- map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", opt)
+-- map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", opt)
+-- map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", opt)

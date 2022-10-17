@@ -30,11 +30,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<A-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
@@ -52,10 +47,10 @@ cmp.setup({
   window = {},
   mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(),
-    ['<C-j>'] = cmp.mapping.select_next_item(),
-    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<A-,>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
-    ['<TAB>'] = cmp.mapping.confirm({ select = true }),
+    ['<TAB>'] = cmp.mapping.select_next_item(),
+    ['<C-g>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-a>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -65,7 +60,8 @@ cmp.setup({
 lsp_cfg.clangd.setup{
   on_attach = on_attach, 
   flags = lsp_flags,
+  cmd = { "clangd", "--header-insertion=never" },
   settings = {
     ["--header-insertion-decorators"] = false,
-  },
+  }
 }
