@@ -14,11 +14,10 @@ map("i", "<C-q>", "<ESC>", opt)
 
 -- about save file
 map("n", "<leader>w", ":w<CR>", opt)
-map("n", "<leader>wq", ":wq<CR>", opt)
 
 -- about exit
 map("n", "qq", ":q!<CR>", opt)
-map("n", "<leader>q", ":q<CR>", opt)
+map("n", "<leader>q", ":wq<CR>", opt)
 
 -- moving cursor quicker
 map("n", "<C-j>", "5j", opt)
