@@ -5,12 +5,12 @@ if not ok then
 end
 
 treesitter.setup({
-  ensure_installed = {"bash", "c", "cmake", "cpp", "java", "lua", "python", "rust"},
+  ensure_installed = {"bash", "c", "cmake", "cpp", "glsl", "java", "lua", "python", "rust"},
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-  increment_selection = {
+  incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "<CR>",
