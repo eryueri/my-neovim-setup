@@ -4,4 +4,9 @@ if not ok then
   return
 end
 
-autopairs.setup({ map_cr = true })
+autopairs.setup({
+  map_cr = true,
+  fast_wrap = {
+    map = "<A-e>"
+  },
+})
