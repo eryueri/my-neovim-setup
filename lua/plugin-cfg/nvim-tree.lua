@@ -5,8 +5,8 @@ if not ok then
 end
 
 local list_keys = { -- 打开文件或文件夹
-  { key = { "o", "<2-LeftMouse>" }, action = "edit" },
-  { key = "<CR>", action = "system_open" },
+  { key = { "<CR>", "<2-LeftMouse>" }, action = "edit" },
+  { key = "o", action = "system_open" },
   -- v分屏打开文件
   { key = "v", action = "vsplit" },
   -- h分屏打开文件

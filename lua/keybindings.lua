@@ -15,6 +15,7 @@ local map = vim.api.nvim_set_keymap
 -- unbind 'q' for i don't use its origin function
 -- and make leader+q become Esc in insert mode
 map("n", "q", "", opt)
+map("i", "<C-p>", "", opt)
 map("i", "<C-q>", "<ESC>", opt)
 
 -- about save file
@@ -102,7 +103,7 @@ map("t", "<ESC>", "<C-\\><C-n>", opt)
 
 -- nvim-tree
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
--- map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 -- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)

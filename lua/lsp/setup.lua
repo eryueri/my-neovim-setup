@@ -70,3 +70,12 @@ lsp_cfg.clangd.setup{
     ["--header-insertion-decorators"] = false,
   }
 }
+
+-- lsp_cfg.rust_analyzer.setup{
+--   on_attach = on_attach, 
+--   cmd = {"rust-analyzer"}, 
+--   filetypes = {"rust"}, 
+--   settings = {
+--     ["rust-analyzer"] = {}
+--   }
+-- }
