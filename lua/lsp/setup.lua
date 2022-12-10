@@ -52,9 +52,14 @@ cmp.setup({
     ['<C-a>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }),
-  sources = cmp.config.sources({
+  sources = cmp.config.sources(
+  {
     { name = 'nvim_lsp' },
-  }),
+  },
+  {
+    { name = 'buffer' },
+  }
+  ),
 })
 
 lsp_cfg.clangd.setup{
