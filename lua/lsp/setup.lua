@@ -42,19 +42,47 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local feedkeys = require'cmp.utils.feedkeys'
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
   completion = { autocomplete = false, },
   window = {},
   mapping = cmp.mapping.preset.insert({
-    ['<S-TAB>'] = cmp.mapping.select_prev_item(),
-    ['<TAB>'] = cmp.mapping.select_next_item(),
     ['<C-g>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-a>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<TAB>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn['vsnip#jumpable'](1) == 1 then
+        feedkeys.call(t"<Plug>(vsnip-jump-next)", "")
+      else
+        fallback()
+      end
+    end, { 'i', 's', 'c' }), 
+    ['<S-TAB>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+        feedkeys.call(t"<Plug>(vsnip-jump-prev)", "")
+      else
+        fallback()
+      end
+    end, { 'i', 's', 'c' }), 
   }),
   sources = cmp.config.sources(
   {
     { name = 'nvim_lsp' },
+    { name = 'vsnip' },
   },
   {
     { name = 'buffer' },
@@ -62,10 +90,13 @@ cmp.setup({
   ),
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 lsp_cfg.clangd.setup{
   on_attach = on_attach, 
+  capabilities = capabilities, 
   flags = lsp_flags,
-  cmd = { "clangd", "--header-insertion=never" },
+  cmd = { "clangd", "--header-insertion=never", "--completion-style=detailed" },
   settings = {
     ["--header-insertion-decorators"] = false,
   }

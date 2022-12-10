@@ -1,6 +1,6 @@
 colorscheme = "tokyonight"
 require("tokyonight").setup({
-  style = "moon",
+  style = "day",
 })
 
 local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

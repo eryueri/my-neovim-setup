@@ -105,6 +105,8 @@ map("t", "<ESC>", "<C-\\><C-n>", opt)
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
+map("n", "<A-b>", ":!cmake --build build<CR>", opt_nsilent)
+
 -- bufferline
 -- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
 -- map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
