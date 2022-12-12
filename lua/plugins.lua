@@ -6,12 +6,12 @@ return require('packer').startup(function(use)
 
   use 'navarasu/onedark.nvim'
 
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = { 
-  --     'kyazdani42/nvim-web-devicons', -- optional, for file icons 
-  --   }
-  -- }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons 
+    }
+  }
 
   -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
@@ -52,5 +52,8 @@ return require('packer').startup(function(use)
   -- use 'hrsh7th/cmp-path'
   -- use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
 
 end)

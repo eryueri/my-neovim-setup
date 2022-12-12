@@ -15,6 +15,7 @@ local map = vim.api.nvim_set_keymap
 -- unbind 'q' for i don't use its origin function
 -- and make leader+q become Esc in insert mode
 map("n", "q", "", opt)
+map("i", "<C-p>", "", opt)
 map("i", "<C-q>", "<ESC>", opt)
 
 -- about save file
@@ -25,6 +26,13 @@ map("n", "<leader>q", ":wq<CR>", opt)
 map("n", "qq", ":q!<CR>", opt)
 
 -- moving cursor quicker
+map("n", "J", "", opt)
+
+map("n", "<C-h>", "b", opt)
+map("n", "<C-l>", "e", opt)
+map("n", "H", "b", opt)
+map("n", "L", "e", opt)
+
 map("n", "<C-j>", "5j", opt)
 map("n", "<C-k>", "5k", opt)
 map("v", "<C-j>", "5j", opt)
@@ -72,18 +80,32 @@ map("n", "<C-Up>", ":resize -2<CR>", opt)
 map("n", "s=", "<C-w>=", opt)
 
 -- to open a new file
-map("n", "<C-o>", ":edit ", opt_nsilent);
+map("n", "<C-o>", ":edit ", opt_nsilent)
+map("n", "<C-t>", ":tabe ", opt_nsilent)
+
+-- to close current buffer
+map("n", "<leader>bd", ":bd<CR>", opt)
+
+-- to iter through buffers
+map("n", "<leader>bl", ":bn<CR>", opt)
+map("n", "<leader>bh", ":bp<CR>", opt)
+
+-- to iter through tabs
+map("n", "<leader>th", ":tabp<CR>", opt)
+map("n", "<leader>tl", ":tabn<CR>", opt)
 
 -- terminal
-map("n", "st", ":sp | terminal<CR>", opt)
-map("n", "stv", ":vsp | terminal<CR>", opt)
+map("n", "sth", ":sp<CR><C-w>j:terminal<CR>", opt)
+map("n", "stv", ":vsp<CR><C-w>l:terminal<CR>", opt)
 map("t", "<ESC>", "<C-\\><C-n>", opt)
 
 -- plugin shortcuts
 
 -- nvim-tree
 -- map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
--- map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+
+map("n", "<A-b>", ":!cmake --build build<CR>", opt_nsilent)
 
 -- bufferline
 -- map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
