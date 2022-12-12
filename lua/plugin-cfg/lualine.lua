@@ -1,3 +1,4 @@
+require "../colorscheme"
 local ok, lualine = pcall(require, "lualine")
 if not ok then 
   vim.notify("lualine not found")
@@ -6,7 +7,7 @@ end
 
 lualine.setup({
   options = {
-    theme = "onedark",
+    theme = colorscheme,
     globalstatus = true,
   },
   extensions = { "nvim-tree" },

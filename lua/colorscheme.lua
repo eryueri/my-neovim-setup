@@ -1,4 +1,7 @@
-local colorscheme = "onedark"
+colorscheme = "tokyonight"
+require("tokyonight").setup({
+  style = "day",
+})
 
 local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not ok then
